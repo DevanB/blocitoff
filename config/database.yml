@@ -20,18 +20,23 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  host: localhost
+
+# development:
+#   adapter: sqlite3
+#   database: db/blocitoff_development.sqlite3
+#   pool: 5
+#   timeout: 5000
 
 development:
-  adapter: sqlite3
-  database: db/blocitoff_development.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: blocitoff_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: blocitoff
+  username: devanb
 
   # The password associated with the postgres role (username).
   #password:
