@@ -8,6 +8,16 @@
 </head>
 <body>
 
+  <header>
+    <div class="user-info">
+      <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+    </div>
+  </header>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 
 </body>
