@@ -81,5 +81,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Devise required
-  config.action_mailer.default_url_options = { host: 'http://devanb-blocitoff.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'devanb-blocitoff.herokuapp.com' }
 end
