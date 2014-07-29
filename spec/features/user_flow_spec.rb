@@ -52,7 +52,7 @@ describe "Sign in" do
 
   describe "successful" do
     it "signs in with valid credentials" do
-      user = create (:user)
+      user = create(:user)
       go_to_sign_in
       submit_sign_in_form(user.email, user.password)
 
