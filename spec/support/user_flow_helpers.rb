@@ -39,4 +39,11 @@ module UserFlowHelpers
       click_button "Sign in"
     end
   end
+
+  def go_and_sign_out
+    visit root_path
+    within '.user-info' do
+      click_link "Sign Out"
+    end
+  end
 end

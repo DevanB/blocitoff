@@ -47,3 +47,44 @@ describe "Sign up" do
   end
 end
 
+describe "Sign in" do
+  include UserFlowHelpers
+
+  describe "successful" do
+    it "signs in with valid credentials" do
+      user = create (:user)
+      go_to_sign_in
+      submit_sign_in_form(user.email, user.password)
+
+      expect(page).to have_content("Signed in successfully.")
+      expect(current_path).to eq('/')
+    end
+  end
+
+  describe "unsuccessfully" do
+    it "when user has incorrect credentials" do
+      go_to_sign_in
+      submit_sign_in_form("bademail@example.com", "badpassword")
+
+      expect(page).to_not have_content("Signed in successfully.")
+      expect(current_path).to eq('/users/sign_in')
+    end
+  end
+end
+
+describe "Sign out" do
+  include UserFlowHelpers
+
+  describe "successful" do
+    it "signs out" do
+      user = create(:user)
+      go_to_sign_in
+      submit_sign_in_form(user.email, user.password)
+      
+      go_and_sign_out
+
+      expect(current_path).to eq('/')
+      expect(page).to have_content("Signed out successfully.")
+    end
+  end
+end
