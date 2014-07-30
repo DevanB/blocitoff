@@ -1,6 +1,5 @@
 class TodosController < ApplicationController
-  def show
-    user = User.find(params[:id])
-    @todos = user.todos
+  def index
+    @todos = Todo.find(params[:id])
   end
 end
