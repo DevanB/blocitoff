@@ -1,0 +1,21 @@
+<h2>My list</h2>
+
+<table>
+  <thead>
+    <th>Description</th>
+    <th>Days left</th>
+    <th>Complete</th>
+  </thead>
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.description.capitalize %></td>
+        <td><%= distance_of_time_in_words_to_now(todo.expiration_date) %></td>
+        <td><%= todo.completed %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Create new todo', new_todo_path %>

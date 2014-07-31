@@ -23,7 +23,7 @@ describe "Sign up" do
       go_to_sign_in
       submit_sign_in_form("anyone@example.com", "password1")
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(todos_path)
       expect(page).to have_content("Signed in successfully.")
     end
   end  
@@ -57,7 +57,7 @@ describe "Sign in" do
       submit_sign_in_form(user.email, user.password)
 
       expect(page).to have_content("Signed in successfully.")
-      expect(current_path).to eq('/')
+      expect(current_path).to eq(todos_path)
     end
   end
 
