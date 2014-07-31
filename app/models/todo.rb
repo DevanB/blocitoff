@@ -4,7 +4,7 @@ class Todo < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :user_id
 
-  def days_left
-    self.created_at-1.week
+  def expiration_date
+    self.created_at+1.week
   end
 end

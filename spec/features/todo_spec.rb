@@ -11,7 +11,7 @@ describe "Creation" do
       expect(current_path).to eq(todos_path)
 
       click_link 'Create new todo'
-      expect(current_path).to eq('/todos/new')
+      expect(current_path).to eq(new_todo_path)
 
       fill_in 'Description', with: "Mop up the kool aid"
       click_button 'Save'
@@ -19,6 +19,7 @@ describe "Creation" do
       expect(current_path).to eq(todos_path)
       expect(page).to have_content("Your todo has been created successfully.")
       expect(page).to have_content("Mop up the kool aid")
+      expect(page).to have_content("7 days")
     end
   end
 end
