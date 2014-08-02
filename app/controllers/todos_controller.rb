@@ -18,9 +18,16 @@ class TodosController < ApplicationController
     end
   end
 
+  def update
+    @todo = Todo.find(params[:id])
+
+    @todo.update_attributes(todo_params)
+    render text: "Your todo was successfully updated."
+  end
+
   private
 
   def todo_params
-    params.require(:todo).permit(:description)
+    params.require(:todo).permit(:description, :completed)
   end
 end

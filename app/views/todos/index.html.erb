@@ -11,7 +11,7 @@
       <tr>
         <td><%= todo.description.capitalize %></td>
         <td><%= distance_of_time_in_words_to_now(todo.expiration_date) %></td>
-        <td><%= todo.completed %></td>
+        <td><%= check_box_tag 'complete', "1", todo.completed, id: "checkbox_#{todo.id}", data: {url: todo_path(todo)} %></td>
       </tr>
     <% end %>
   </tbody>
