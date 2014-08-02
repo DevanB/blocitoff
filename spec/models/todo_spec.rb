@@ -12,4 +12,10 @@ describe Todo do
     end
   end
 
+  describe "#delete_completed_todo" do
+    it "deletes the todo after the todo is marked as complete" do
+      @todo.update_attribute("completed", true)
+      expect(Todo.count).to eq(0)
+    end
+  end
 end
