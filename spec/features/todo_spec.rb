@@ -30,7 +30,7 @@ describe "Creation" do
 
       visit todos_path
       check "checkbox_#{todo.id}"
-      expect(page).to have_content("Todo successfully completed.")
+      expect(page).to have_content("Your todo was successfully updated.")
       expect(page).to_not have_content(todo.description)
     end
   end
