@@ -18,4 +18,14 @@ describe Todo do
       expect(Todo.count).to eq(0)
     end
   end
+
+  describe "#delele_todos" do
+    include ActiveSupport::Testing::TimeHelpers
+    it "deletes the todo after 7 days" do
+      travel_to Time.new(2014, 8, 7, 9, 5, 0) do
+        DeleteTodos.run
+        expect(Todo.count).to eq(0)
+      end
+    end
+  end
 end
